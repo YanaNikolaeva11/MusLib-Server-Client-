@@ -27,7 +27,7 @@ public class Server {
 
             // канал записи в сокет
             /*out = new DataOutputStream(clientSocket.getOutputStream());*/
-            /*System.out.println("DataOutputStream  created");*/
+            System.out.println("DataOutputStream  created");
             outObject = new ObjectOutputStream(clientSocket.getOutputStream());
             // канал чтения из сокета
             /*in = new DataInputStream(clientSocket.getInputStream());*/
@@ -62,7 +62,7 @@ public class Server {
                 }
 
 // если условие окончания работы не верно - продолжаем работу - отправляем эхо-ответ  обратно клиенту
-                /*out.writeUTF("Server reply - "+entry + " - OK");*/
+                outObject.writeObject("Server reply - "+entry + " - OK");
                 System.out.println("Server Wrote message to client.");
 
 // освобождаем буфер сетевых сообщений (по умолчанию сообщение не сразу отправляется в сеть, а сначала накапливается в специальном буфере сообщений, размер которого определяется конкретными настройками в системе, а метод  - flush() отправляет сообщение не дожидаясь наполнения буфера согласно настройкам системы

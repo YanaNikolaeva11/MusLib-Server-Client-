@@ -4,7 +4,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 public class Client {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
 
 // запускаем подключение сокета по известным координатам и нициализируем приём сообщений с консоли клиента
         try(Socket socket = new Socket("localhost", 3345);
@@ -62,7 +62,8 @@ public class Client {
 
 // если успел забираем ответ из канала сервера в сокете и сохраняем её в ois переменную,  печатаем на свою клиентскую консоль
                         System.out.println("reading...");
-                        String in = ois.readUTF();
+                        //String in = ois.readUTF();
+                        Object in = ois.readObject();
                         System.out.println(in);
                     }
                 }
